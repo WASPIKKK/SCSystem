@@ -1,0 +1,54 @@
+2025-03-22|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-22|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-22|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-22|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-22|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-22|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-22|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-22|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-22|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-22|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-22|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-22|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-22|java.nio.file.FileSystemException: src\main\resource\counter\brandCounter.txt: Процесс не может получить доступ к файлу, так как этот файл занят другим процессом
+2025-03-22|java.nio.file.FileSystemException: src\main\resource\counter\brandCounter.txt: Процесс не может получить доступ к файлу, так как этот файл занят другим процессом
+2025-03-22|java.nio.file.FileSystemException: src\main\resource\counter\brandCounter.txt: Процесс не может получить доступ к файлу, так как этот файл занят другим процессом
+2025-03-23|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-23|java.nio.file.NoSuchFileException: src\main\resource\counter\brandCounter.txt
+2025-03-23|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-23|java.nio.file.NoSuchFileException: src\main\resource\counter\brandCounter.txt
+2025-03-23|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-23|java.nio.file.NoSuchFileException: src\main\resource\counter\brandCounter.txt
+2025-03-23|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-23|java.nio.file.NoSuchFileException: src\main\resource\counter\brandCounter.txt
+2025-03-23|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-23|java.nio.file.NoSuchFileException: src\main\resource\counter\brandCounter.txt
+2025-03-23|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-23|java.nio.file.NoSuchFileException: src\main\resource\counter\brandCounter.txt
+2025-03-23|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-23|java.nio.file.NoSuchFileException: src\main\resource\counter\brandCounter.txt
+2025-03-23|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-23|java.nio.file.NoSuchFileException: src\main\resource\counter\brandCounter.txt
+2025-03-23|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-23|java.nio.file.NoSuchFileException: src\main\resource\counter\brandCounter.txt
+2025-03-23|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-23|java.nio.file.NoSuchFileException: src\main\resource\counter\brandCounter.txt
+2025-03-23|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-23|java.nio.file.NoSuchFileException: src\main\resource\counter\brandCounter.txt
+2025-03-23|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-23|java.nio.file.NoSuchFileException: src\main\resource\counter\brandCounter.txt
+2025-03-23|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-23|java.nio.file.NoSuchFileException: src\main\resource\counter\brandCounter.txt
+2025-03-23|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-23|java.nio.file.NoSuchFileException: src\main\resource\counter\brandCounter.txt
+2025-03-23|java.io.FileNotFoundException: src\main\resource\counter\brandCounter.txt (Не удается найти указанный файл)
+2025-03-23|java.nio.file.NoSuchFileException: src\main\resource\counter\brandCounter.txt
+2025-03-23|java.io.FileNotFoundException: src\main\resource\error\listBrand.txt (Не удается найти указанный файл)
+2025-03-23|java.io.FileNotFoundException: src\main\resource\error\listBrand.txt (Не удается найти указанный файл)
+2025-03-23|java.io.FileNotFoundException: src\main\resource\error\listBrand.txt (Не удается найти указанный файл)
+2025-03-23|java.io.FileNotFoundException: src\main\resource\error\listBrand.txt (Не удается найти указанный файл)
+2025-03-23|java.io.FileNotFoundException: src\main\resource\error\listBrand.txt (Не удается найти указанный файл)
+2025-03-23|java.io.FileNotFoundException: src\main\resource\error\listBrand.txt (Не удается найти указанный файл)
+2025-03-23|java.io.FileNotFoundException: src\main\resource\error\listBrand.txt (Не удается найти указанный файл)
+2025-03-23|java.io.FileNotFoundException: src\main\resource\error\listBrand.txt (Не удается найти указанный файл)
+2025-03-24|java.io.FileNotFoundException: src\main\resource\data\listBrand.csv (Не удается найти указанный файл)
