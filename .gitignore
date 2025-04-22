@@ -13,6 +13,9 @@ build/
 # Ignored resource files
 resource/**/*.txt
 resource/**/*.csv
+/src/main/resource/**/*.txt
+/src/main/resource/**/*.csv
+src/main/java/com/wasp/scs/wDel/*
 
 # System
 .DS_Store

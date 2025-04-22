@@ -15,6 +15,7 @@ public class BrandService {
     public BrandService(BrandRepository repository) {
         this.repository = repository;
     }
+
     public void createBrand(Brand brand) {
         try {
             isValidBrand(brand);
