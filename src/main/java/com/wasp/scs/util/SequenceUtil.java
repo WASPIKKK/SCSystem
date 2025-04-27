@@ -1,16 +1,18 @@
 package com.wasp.scs.util;
 
 import com.wasp.scs.constant.AppConstant;
+import com.wasp.scs.file.AppStorage;
 
 import java.io.*;
 import java.nio.file.Files;
 
-public class SequenceUtil {
+public final class SequenceUtil {
 
     private SequenceUtil() {
     }
 
     private static boolean checkFile(File file) {
+        AppStorage.initDir();
         if (!file.exists() || file.length() == 0) {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
                 writer.write(String.valueOf(AppConstant.INITIAL_VALUE));
@@ -22,7 +24,7 @@ public class SequenceUtil {
         return true;
     }
 
-    public static int readAndUpdateCounter(File file, File tempFileRename) {
+    public static int readAndUpdate(File file, File tempFileRename) {
         int count;
         if (checkFile(file)) {
             try (BufferedReader reader = new BufferedReader(new FileReader(file));

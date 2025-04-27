@@ -10,12 +10,8 @@ build/
 # Logs
 *.log
 
-# Ignored resource files
-resource/**/*.txt
-resource/**/*.csv
-/src/main/resource/**/*.txt
-/src/main/resource/**/*.csv
-src/main/java/com/wasp/scs/wDel/*
+# Ignored my files/dir
+data/
 
 # System
 .DS_Store
