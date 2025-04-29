@@ -4,8 +4,6 @@ import com.wasp.scs.file.AppStorage;
 import com.wasp.scs.util.LoggerUtil;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +11,6 @@ public abstract class CsvManager {
 
     static {
         AppStorage.initDir();
-    }
-
-    protected boolean haveTitle(String line) {
-        return line.contains("ID") || line.contains("NAME");
     }
 
     protected List<String> readFromFile(File entityFile) {
@@ -32,29 +26,6 @@ public abstract class CsvManager {
             LoggerUtil.loggErrors(exception);
         }
         return stringList;
-    }
-
-    protected void deleteFromFile(String entity, File entityFile, File tempFile) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
-            List<String> list = readFromFile(entityFile);
-            boolean titleWritten = false;
-            for (String temp : list) {
-                if (!temp.equalsIgnoreCase(entity)) {
-                    if (!titleWritten) {
-                        writer.write(AppStorage.TITLE);
-                        titleWritten = true;
-                    }
-                    writer.write(String.format("%s%s", temp, AppStorage.NEW_LINE));
-                }
-            }
-        } catch (IOException exception) {
-            LoggerUtil.loggErrors(exception);
-        }
-        try {
-            Files.move(tempFile.toPath(), entityFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException exception) {
-            LoggerUtil.loggErrors(exception);
-        }
     }
 
     protected void writeToFile(String entity, File entityFile) {
@@ -97,6 +68,28 @@ public abstract class CsvManager {
             }
         }
         return null;
+    }
+
+    protected void deleteFromFile(String entity, File entityFile) {
+        List<String> list = readFromFile(entityFile);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(entityFile))) {
+            boolean titleWritten = false;
+            for (String temp : list) {
+                if (!temp.equalsIgnoreCase(entity)) {
+                    if (!titleWritten) {
+                        writer.write(AppStorage.TITLE);
+                        titleWritten = true;
+                    }
+                    writer.write(String.format("%s%s", temp, AppStorage.NEW_LINE));
+                }
+            }
+        } catch (IOException exception) {
+            LoggerUtil.loggErrors(exception);
+        }
+    }
+
+    protected boolean haveTitle(String line) {
+        return line.contains("ID") || line.contains("NAME");
     }
 
 }

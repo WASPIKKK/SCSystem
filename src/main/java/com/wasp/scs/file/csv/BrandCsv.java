@@ -2,27 +2,30 @@ package com.wasp.scs.file.csv;
 
 import com.wasp.scs.file.AppStorage;
 
+import java.io.File;
 import java.util.List;
 
 public class BrandCsv extends CsvManager {
 
+    private final File csv = new File(AppStorage.CSV_BRAND_DIR,"brand.csv");
+
     public List<String> readBrandFromFile() {
-        return readFromFile(AppStorage.CSV_FILE_BRAND);
+        return readFromFile(csv);
     }
 
     public void deleteBrandFromFile(String brand) {
-        deleteFromFile(brand, AppStorage.CSV_FILE_BRAND, AppStorage.TEMP_CSV_FILE_BRAND);
+        deleteFromFile(brand, csv);
     }
 
     public void writeBrandToFile(String brand) {
-        writeToFile(brand, AppStorage.CSV_FILE_BRAND);
+        writeToFile(brand, csv);
     }
 
     public void rewriteBrandToFile(String brand) {
-        rewriteInFile(brand, AppStorage.CSV_FILE_BRAND);
+        rewriteInFile(brand, csv);
     }
 
     public String findBrandInFile(long id) {
-        return findInFile(id, AppStorage.CSV_FILE_BRAND);
+        return findInFile(id, csv);
     }
 }
