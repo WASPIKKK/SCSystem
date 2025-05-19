@@ -1,16 +1,17 @@
 package com.wasp.scs.service;
 
 import com.wasp.scs.entity.Brand;
+import com.wasp.scs.enums.ActionStatus;
 
 import java.util.List;
 
 public interface BrandService {
 
-    void create(Brand brand);
+    ActionStatus create(Brand brand);
 
-    void delete(Brand brand);
+    ActionStatus delete(Brand brand);
 
-    void update(Brand brand);
+    ActionStatus update(Brand brand);
 
-    List<Brand> listBrand();
+    List<Brand> getAllBrands();
 }

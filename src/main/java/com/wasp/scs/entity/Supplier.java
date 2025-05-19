@@ -5,4 +5,9 @@ public class Supplier extends Entity {
     public Supplier(String name) {
         super(name);
     }
+
+    @Override
+    public String toString() {
+        return getId() + ";" + getName();
+    }
 }

@@ -1,72 +1,73 @@
 package com.wasp.scs.service.impl;
 
-import com.wasp.scs.constant.AppConstant;
+import com.wasp.scs.db.counter.base.CounterManager;
 import com.wasp.scs.entity.Brand;
-import com.wasp.scs.exception.BrandException;
+import com.wasp.scs.enums.ActionStatus;
+import com.wasp.scs.repository.impl.BrandRepositoryImpl;
 import com.wasp.scs.service.BrandService;
-import com.wasp.scs.service.counter.CounterService;
-import com.wasp.scs.service.counter.impl.BrandCounterImpl;
+import com.wasp.scs.db.counter.BrandCounter;
 import com.wasp.scs.repository.BrandRepository;
-import com.wasp.scs.util.LoggerUtil;
+import com.wasp.scs.service.validator.ValidatorService;
 
 import java.util.List;
 
-public class BrandServiceImpl implements BrandService {
+public class BrandServiceImpl implements BrandService, ValidatorService<Brand> {
 
-    private final BrandRepository repository;
-    private final CounterService counterService = new BrandCounterImpl();
-
-    public BrandServiceImpl(BrandRepository repository) {
-        this.repository = repository;
-    }
+    private final BrandRepository repository = new BrandRepositoryImpl();
+    private final CounterManager counterManager = new BrandCounter();
 
     @Override
-    public void create(Brand brand) {
-        try {
-            isValidBrand(brand);
-            int counter = counterService.getNextId(); // set id for brand?
-            if (counter > AppConstant.ERROR_VALUE) {
-                brand.setId(counter);
-                repository.create(brand);
-            } else {
-                throw new BrandException(String.format("%s %s", "Counter value must be greater than", AppConstant.ERROR_VALUE));
+    public ActionStatus create(Brand brand) {
+        if (isValid(brand)) {
+            if (counterManager.generateNextId()) {
+                int id = counterManager.getCurrentId();
+                brand.setId(id);
+                if (repository.create(brand)) {
+                    return ActionStatus.SUCCESS;
+                } else {
+                    counterManager.restorePreviousId();
+                }
             }
-        } catch (BrandException exception) {
-            LoggerUtil.loggErrors(exception);
-            throw exception;
+            return ActionStatus.FAILED;
         }
+        return ActionStatus.INVALID_INPUT;
     }
 
     @Override
-    public void delete(Brand brand) {
-        isValidBrand(brand);
-        repository.delete(brand);
-    }
-
-    private void isValidBrand(Brand brand) {
-        if (brand == null) {
-            throw new BrandException("Brand cannot be NULL.");
+    public ActionStatus delete(Brand brand) {
+        if (isValid(brand)) {
+            if (repository.delete(brand)) {
+                return ActionStatus.SUCCESS;
+            }
+            return ActionStatus.FAILED;
         }
-        if (brand.getName().isEmpty()) {
-            throw new BrandException("Brand name cannot be EMPTY.");
-        }
+        return ActionStatus.INVALID_INPUT;
     }
 
     @Override
-    public void update(Brand brand) {
-        try {
-            isValidBrand(brand);
-            Brand oldBrand = repository.findById(brand.getId());
-            oldBrand.setName(brand.getName());
-            repository.update(oldBrand);
-        } catch (BrandException exception) {
-            LoggerUtil.loggErrors(exception);
-            throw exception;
+    public ActionStatus update(Brand brand) {
+        Brand newBrand = repository.findById(brand.getId());
+        if (isValid(newBrand)) {
+            newBrand.setName(brand.getName());
+            if (repository.update(newBrand)) {
+                return ActionStatus.SUCCESS;
+            }
+            return ActionStatus.FAILED;
         }
+        return ActionStatus.INVALID_INPUT;
     }
 
     @Override
-    public List<Brand> listBrand() {
+    public List<Brand> getAllBrands() {
         return repository.listBrand();
+    }
+
+/*    private boolean isValidBrand(Brand brand) {
+        return brand != null && brand.getName() != null && !brand.getName().isEmpty();
+    }*/
+
+    @Override
+    public boolean isValid(Brand brand) {
+        return brand != null && brand.getName() != null && !brand.getName().isEmpty();
     }
 }

@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface BrandRepository {
 
-    void create(Brand brand);
+    boolean create(Brand brand);
 
-    void delete(Brand brand);
+    boolean delete(Brand brand);
 
     Brand findById(Long id);
 
-    void update(Brand brand);
+    boolean update(Brand brand);
 
     List<Brand> listBrand();
 

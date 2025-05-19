@@ -1,12 +1,12 @@
 package com.wasp.scs.entity;
 
-public class Product extends Entity{
+public class Product extends Entity {
 
     private Brand brand;
     private Supplier supplier;
 
     public Product(String name) {
-       super(name);
+        super(name);
     }
 
     public Brand getBrand() {
@@ -23,5 +23,10 @@ public class Product extends Entity{
 
     public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
+    }
+
+    @Override
+    public String toString() {
+        return getId() + ";" + getName() + ";" + getBrand() + ";" + getSupplier();
     }
 }

@@ -1,16 +1,17 @@
 package com.wasp.scs.service;
 
 import com.wasp.scs.entity.Supplier;
+import com.wasp.scs.enums.ActionStatus;
 
 import java.util.List;
 
 public interface SupplierService {
 
-    void create(Supplier supplier);
+    ActionStatus create(Supplier supplier);
 
-    void delete(Supplier supplier);
+    ActionStatus delete(Supplier supplier);
 
-    void update(Supplier supplier);
+    ActionStatus update(Supplier supplier);
 
-    List<Supplier> listSupplier();
+    List<Supplier> getAllSupplier();
 }

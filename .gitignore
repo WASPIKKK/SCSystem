@@ -16,3 +16,4 @@ data/
 # System
 .DS_Store
 Thumbs.db
+/src/main/resource/test.txt

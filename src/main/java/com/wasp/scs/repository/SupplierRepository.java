@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface SupplierRepository {
 
-    void create(Supplier supplier);
+    boolean create(Supplier supplier);
 
-    void delete(Supplier supplier);
+    boolean delete(Supplier supplier);
 
     Supplier findById(Long id);
 
-    void update(Supplier supplier);
+    boolean update(Supplier supplier);
 
     List<Supplier> listSupplier();
 }
