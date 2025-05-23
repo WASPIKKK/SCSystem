@@ -27,8 +27,8 @@ public class SupplierCsv extends EntityCsvManager {
         return readFromFile(supplierFile);
     }
 
-    public boolean deleteSupplierFromFile(String supplier) {
-        return deleteFromFile(supplier, supplierFile);
+    public boolean deleteSupplierFromFile(long id) {
+        return deleteFromFile(id, supplierFile);
     }
 
     public boolean rewriteSupplierToFile(String supplier) {

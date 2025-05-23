@@ -11,9 +11,9 @@ public interface ProductService {
 
     ActionStatus create(Product product, Brand brand, Supplier supplier);
 
-    ActionStatus delete(Long id);
+    ActionStatus delete(long id);
 
-    ActionStatus update(Long id);
+    ActionStatus update(long id, String name);
 
     List<Product> getAllProduct();
 }

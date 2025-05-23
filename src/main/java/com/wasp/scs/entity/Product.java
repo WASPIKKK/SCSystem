@@ -27,6 +27,6 @@ public class Product extends Entity {
 
     @Override
     public String toString() {
-        return getId() + ";" + getName() + ";" + getBrand() + ";" + getSupplier();
+        return getId() + ";" + getName() + ";" + getBrand().getName() + ";" + getSupplier().getName();
     }
 }

@@ -8,7 +8,7 @@ public interface SupplierRepository {
 
     boolean create(Supplier supplier);
 
-    boolean delete(Supplier supplier);
+    boolean delete(long id);
 
     Supplier findById(Long id);
 

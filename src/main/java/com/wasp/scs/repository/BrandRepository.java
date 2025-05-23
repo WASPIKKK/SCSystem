@@ -8,9 +8,9 @@ public interface BrandRepository {
 
     boolean create(Brand brand);
 
-    boolean delete(Brand brand);
+    boolean delete(long id);
 
-    Brand findById(Long id);
+    Brand findById(long id);
 
     boolean update(Brand brand);
 

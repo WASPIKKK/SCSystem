@@ -9,9 +9,9 @@ public interface BrandService {
 
     ActionStatus create(Brand brand);
 
-    ActionStatus delete(Brand brand);
+    ActionStatus delete(long id);
 
-    ActionStatus update(Brand brand);
+    ActionStatus update(long id, String name);
 
     List<Brand> getAllBrands();
 }

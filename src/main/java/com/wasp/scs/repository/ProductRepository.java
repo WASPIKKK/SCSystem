@@ -1,7 +1,6 @@
 package com.wasp.scs.repository;
 
 import com.wasp.scs.entity.Product;
-import com.wasp.scs.entity.Supplier;
 
 import java.util.List;
 
@@ -9,11 +8,11 @@ public interface ProductRepository {
 
     boolean create(Product product);
 
-    boolean delete(Long id);
+    boolean delete(long id);
 
-    Supplier findById(Long id);
+    Product findById(long id);
 
-    boolean update(Long id);
+    boolean update(Product product);
 
-    List<Supplier> listProduct();
+    List<Product> listProduct();
 }

@@ -1,6 +1,8 @@
 package com.wasp.scs.entity;
 
-public class Supplier extends Entity {
+import com.wasp.scs.entity.helper.ProductUpdater;
+
+public class Supplier extends Entity implements ProductUpdater {
 
     public Supplier(String name) {
         super(name);
@@ -9,5 +11,10 @@ public class Supplier extends Entity {
     @Override
     public String toString() {
         return getId() + ";" + getName();
+    }
+
+    @Override
+    public void productUpdate(Product product) {
+        product.setSupplier(this);
     }
 }

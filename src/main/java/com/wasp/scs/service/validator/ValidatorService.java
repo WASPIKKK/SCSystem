@@ -4,5 +4,7 @@ import com.wasp.scs.entity.Entity;
 
 public interface ValidatorService<T extends Entity> {
 
-    boolean isValid(T entity);
+    default boolean isValid(T entity) {
+        return entity != null && entity.getName() != null && !entity.getName().isEmpty();
+    }
 }

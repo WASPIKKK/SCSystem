@@ -18,56 +18,56 @@ public class BrandServiceImpl implements BrandService, ValidatorService<Brand> {
 
     @Override
     public ActionStatus create(Brand brand) {
-        if (isValid(brand)) {
-            if (counterManager.generateNextId()) {
-                int id = counterManager.getCurrentId();
-                brand.setId(id);
-                if (repository.create(brand)) {
-                    return ActionStatus.SUCCESS;
-                } else {
-                    counterManager.restorePreviousId();
-                }
-            }
-            return ActionStatus.FAILED;
+        if(!isValid(brand)){
+            return ActionStatus.INVALID_INPUT;
         }
-        return ActionStatus.INVALID_INPUT;
+
+        if (counterManager.generateNextId()) {
+            int id = counterManager.getCurrentId();
+            brand.setId(id);
+            if (repository.create(brand)) {
+                return ActionStatus.SUCCESS;
+            } else {
+                counterManager.restorePreviousId();
+            }
+        }
+
+        return ActionStatus.FAILED;
     }
 
     @Override
-    public ActionStatus delete(Brand brand) {
-        if (isValid(brand)) {
-            if (repository.delete(brand)) {
-                return ActionStatus.SUCCESS;
-            }
-            return ActionStatus.FAILED;
+    public ActionStatus delete(long id) {
+        Brand brand = repository.findById(id);
+
+        if (!isValid(brand)) {
+            return ActionStatus.INVALID_INPUT;
         }
-        return ActionStatus.INVALID_INPUT;
+
+        if(repository.delete(id)){
+            return ActionStatus.SUCCESS;
+        }
+
+        return ActionStatus.FAILED;
     }
 
     @Override
-    public ActionStatus update(Brand brand) {
-        Brand newBrand = repository.findById(brand.getId());
-        if (isValid(newBrand)) {
-            newBrand.setName(brand.getName());
-            if (repository.update(newBrand)) {
-                return ActionStatus.SUCCESS;
-            }
-            return ActionStatus.FAILED;
+    public ActionStatus update(long id, String name) {
+        Brand brand = repository.findById(id);
+
+        if (!isValid(brand)) {
+            return ActionStatus.INVALID_INPUT;
         }
-        return ActionStatus.INVALID_INPUT;
+
+        brand.setName(name);
+        if (repository.update(brand)) {
+            return ActionStatus.SUCCESS;
+        }
+
+        return ActionStatus.FAILED;
     }
 
     @Override
     public List<Brand> getAllBrands() {
         return repository.listBrand();
-    }
-
-/*    private boolean isValidBrand(Brand brand) {
-        return brand != null && brand.getName() != null && !brand.getName().isEmpty();
-    }*/
-
-    @Override
-    public boolean isValid(Brand brand) {
-        return brand != null && brand.getName() != null && !brand.getName().isEmpty();
     }
 }

@@ -22,4 +22,11 @@ public class Cart {
     public void removeAllProduct() {
         productList.clear();
     }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "productList=" + productList +
+                '}';
+    }
 }

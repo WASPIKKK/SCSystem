@@ -19,12 +19,12 @@ public class BrandRepositoryImpl implements BrandRepository {
     }
 
     @Override
-    public boolean delete(Brand brand) {
-        return brandCsv.deleteBrandFromFile(brand.toString());
+    public boolean delete(long id) {
+        return brandCsv.deleteBrandFromFile(id);
     }
 
     @Override
-    public Brand findById(Long id) {
+    public Brand findById(long id) {
         String tempBrand = brandCsv.findBrandInFile(id);
         if (tempBrand != null) {
             return mapper.mapToEntity(tempBrand);

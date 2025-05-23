@@ -1,6 +1,8 @@
 package com.wasp.scs.entity;
 
-public class Brand extends Entity{
+import com.wasp.scs.entity.helper.ProductUpdater;
+
+public class Brand extends Entity implements ProductUpdater {
 
     public Brand(String name) {
         super(name);
@@ -9,5 +11,10 @@ public class Brand extends Entity{
     @Override
     public String toString() {
         return getId() + ";" + getName();
+    }
+
+    @Override
+    public void productUpdate(Product product) {
+        product.setBrand(this);
     }
 }

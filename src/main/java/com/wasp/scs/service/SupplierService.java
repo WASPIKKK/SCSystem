@@ -9,9 +9,9 @@ public interface SupplierService {
 
     ActionStatus create(Supplier supplier);
 
-    ActionStatus delete(Supplier supplier);
+    ActionStatus delete(long id);
 
-    ActionStatus update(Supplier supplier);
+    ActionStatus update(long id, String name);
 
     List<Supplier> getAllSupplier();
 }

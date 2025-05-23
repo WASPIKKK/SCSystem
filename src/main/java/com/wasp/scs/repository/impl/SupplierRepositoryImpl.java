@@ -19,8 +19,8 @@ public class SupplierRepositoryImpl implements SupplierRepository {
     }
 
     @Override
-    public boolean delete(Supplier supplier) {
-        return supplierCsv.deleteSupplierFromFile(supplier.toString());
+    public boolean delete(long id) {
+        return supplierCsv.deleteSupplierFromFile(id);
     }
 
     @Override

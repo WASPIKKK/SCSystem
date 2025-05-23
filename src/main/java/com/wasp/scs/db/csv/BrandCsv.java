@@ -23,8 +23,8 @@ public class BrandCsv extends EntityCsvManager {
         return readFromFile(brandFile);
     }
 
-    public boolean deleteBrandFromFile(String brand) {
-        return deleteFromFile(brand, brandFile);
+    public boolean deleteBrandFromFile(long id) {
+        return deleteFromFile(id, brandFile);
     }
 
     public boolean writeBrandToFile(String brand) {

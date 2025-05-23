@@ -5,16 +5,15 @@ import com.wasp.scs.db.counter.base.CounterManager;
 
 import java.io.File;
 
-public class ProductCounter extends CounterManager {
-
+public class CartCounter extends CounterManager {
     private static final String DIR_PATH = String.format("%s/%s/%s/%s",
             StorageConstant.GENERAL_DIR,
             StorageConstant.CATALOG_DIR,
-            "product",
+            "cart",
             StorageConstant.COUNT_DIR);
     private final File counterFile;
 
-    public ProductCounter() {
+    public CartCounter() {
         this.counterFile = prepareDirAndFile(DIR_PATH);
     }
 

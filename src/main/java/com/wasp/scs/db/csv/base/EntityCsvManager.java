@@ -12,7 +12,7 @@ public abstract class EntityCsvManager {
     protected static final String NEW_LINE = "\n";
     protected static final String SEPARATOR = ";";
 
-    protected String getTitle(){
+    protected String getTitle() {
         return String.format("ID%sNAME%s", SEPARATOR, NEW_LINE);
     }
 
@@ -80,14 +80,14 @@ public abstract class EntityCsvManager {
         return null;
     }
 
-    protected boolean deleteFromFile(String entity, File entityFile) {
+    protected boolean deleteFromFile(long id, File entityFile) {
         List<String> list = readFromFile(entityFile);
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(entityFile))) {
             boolean titleWritten = false;
 
             for (String temp : list) {
-                if (!temp.equals(entity)) {
+                if (!temp.startsWith(String.valueOf(id))) {
                     if (!titleWritten) {
                         writer.write(getTitle());
                         titleWritten = true;

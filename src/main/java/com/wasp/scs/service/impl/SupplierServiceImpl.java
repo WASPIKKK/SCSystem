@@ -18,53 +18,56 @@ public class SupplierServiceImpl implements SupplierService, ValidatorService<Su
 
     @Override
     public ActionStatus create(Supplier supplier) {
-        if (isValid(supplier)) {
-            if (counterManager.generateNextId()) {
-                int id = counterManager.getCurrentId();
-                supplier.setId(id);
-                if (repository.create(supplier)) {
-                    return ActionStatus.SUCCESS;
-                } else {
-                    counterManager.restorePreviousId();
-                }
-            }
-            return ActionStatus.FAILED;
+        if(!isValid(supplier)){
+            return ActionStatus.INVALID_INPUT;
         }
-        return ActionStatus.INVALID_INPUT;
+
+        if (counterManager.generateNextId()) {
+            int id = counterManager.getCurrentId();
+            supplier.setId(id);
+            if (repository.create(supplier)) {
+                return ActionStatus.SUCCESS;
+            } else {
+                counterManager.restorePreviousId();
+            }
+        }
+
+        return ActionStatus.FAILED;
     }
 
     @Override
-    public ActionStatus delete(Supplier supplier) {
-        if (isValid(supplier)) {
-            if (repository.delete(supplier)) {
-                return ActionStatus.SUCCESS;
-            }
-            return ActionStatus.FAILED;
+    public ActionStatus delete(long id) {
+        Supplier supplier = repository.findById(id);
+
+        if (!isValid(supplier)) {
+            return ActionStatus.INVALID_INPUT;
         }
-        return ActionStatus.INVALID_INPUT;
+
+        if(repository.delete(id)){
+            return ActionStatus.SUCCESS;
+        }
+
+        return ActionStatus.FAILED;
     }
 
     @Override
-    public ActionStatus update(Supplier supplier) {
-        Supplier newSupplier = repository.findById(supplier.getId());
-        if (isValid(newSupplier)) {
-            newSupplier.setName(supplier.getName());
-            if (repository.update(newSupplier)) {
-                return ActionStatus.SUCCESS;
-            }
-            return ActionStatus.FAILED;
+    public ActionStatus update(long id, String name) {
+        Supplier supplier = repository.findById(id);
+
+        if (!isValid(supplier)) {
+            return ActionStatus.INVALID_INPUT;
         }
-        return ActionStatus.INVALID_INPUT;
+
+        supplier.setName(name);
+        if (repository.update(supplier)) {
+            return ActionStatus.SUCCESS;
+        }
+
+        return ActionStatus.FAILED;
     }
 
     @Override
     public List<Supplier> getAllSupplier() {
         return repository.listSupplier();
-    }
-
-
-    @Override
-    public boolean isValid(Supplier supplier) {
-        return supplier != null && supplier.getName() != null && !supplier.getName().isEmpty();
     }
 }
